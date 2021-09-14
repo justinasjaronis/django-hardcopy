@@ -48,9 +48,9 @@ def file_to(fmt, input_file, output_file, **extra_args):
 
     # Path to the input data.
     chrome_args.append('file://{}'.format(input_file.name))
-    subprocess.call(" ".join(chrome_args), shell=True)
+    return_code = subprocess.call(" ".join(chrome_args), shell=True)
     output_file.seek(0)
-
+    del(return_code)
     return True
 
 
